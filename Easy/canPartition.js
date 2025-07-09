@@ -13,8 +13,48 @@ The array may contain duplicates.
 Multiple solutions can exist, any solution is sufficient to return true.
 */
 
-function canPartition( /*args*/ ) {
+function canPartition(arr) {
   //your code
+  let numOfNeg = 0;
+  let sumToCheck = 1;
+  let tmp = arr.filter((n) => n === 0);
+  if (tmp.length > 0) {
+    if (tmp.length > 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < 0) numOfNeg++;
+  }
+  if (numOfNeg % 2 !== 0 && numOfNeg > 0) {
+    return false;
+  } else if (numOfNeg > 0) {
+    let minVal = Math.min(...arr);
+    let idx = arr.findIndex((min) => min === minVal);
+    arr.splice(idx, 1);
+    for (let i = 0; i < arr.length; i++) {
+      sumToCheck = sumToCheck * arr[i];
+    }
+    if (sumToCheck === minVal) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    let maxVal = Math.max(...arr);
+    let idx = arr.findIndex((max) => max === maxVal);
+    arr.splice(idx, 1);
+    for (let i = 0; i < arr.length; i++) {
+      sumToCheck = sumToCheck * arr[i];
+    }
+    if (sumToCheck === maxVal) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 exports.solution = canPartition;

@@ -8,11 +8,16 @@ arrayOfMultiples(12, 10) ➞ [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
 
 arrayOfMultiples(17, 6) ➞ [17, 34, 51, 68, 85, 102]
 Notes
-Notice that num is also included in the returned array.
+Notice that num is also included in the returned array.npm audit f
 */
 
-function arrayOfMultiples(/*args*/) {
+function arrayOfMultiples(num, length) {
   //your code
+  const arr = [];
+  for (let i = 1; i <= length; i++) {
+    arr.push(num * i);
+  }
+  return arr;
 }
 
 exports.solution = arrayOfMultiples;
