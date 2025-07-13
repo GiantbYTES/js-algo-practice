@@ -10,8 +10,30 @@ Notes
 A string can contain uppercase and lowercase vowels.
 */
 
-function dashed( /*args*/ ) {
+function dashed(str) {
   //your code
+  let toReturn = "";
+  for (let i = 0; i < str.length; i++) {
+    let l = str.charAt(i);
+    if (
+      l === "a" ||
+      l === "e" ||
+      l === "i" ||
+      l === "o" ||
+      l === "u" ||
+      l === "A" ||
+      l === "E" ||
+      l === "I" ||
+      l === "O" ||
+      l === "U"
+    ) {
+      toReturn = toReturn + "-" + l + "-";
+    } else {
+      toReturn = toReturn + l;
+    }
+  }
+  console.log(toReturn);
+  return toReturn;
 }
 
 exports.solution = dashed;

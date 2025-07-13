@@ -30,8 +30,33 @@ Notes
 All inputs are strings, no uppercases and all output must be strings.
 */
 
-function encrypt( /*args*/ ) {
+function encrypt(str) {
   //your code
+  let toReturn = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    let l = str.charAt(i);
+    switch (l) {
+      case "a":
+        toReturn = toReturn + "0";
+        break;
+      case "e":
+        toReturn = toReturn + "1";
+        break;
+      case "i":
+        toReturn = toReturn + "2";
+        break;
+      case "o":
+        toReturn = toReturn + "2";
+        break;
+      case "u":
+        toReturn = toReturn + "3";
+        break;
+      default:
+        toReturn = toReturn + l;
+        break;
+    }
+  }
+  return toReturn + "aca";
 }
 
 exports.solution = encrypt;
