@@ -35,14 +35,16 @@ The highest score has a rank value of 1..
 
 function competitionRank(scores, name) {
   //your code
+  //Split the scores into a new array of objects with name and score
   const ranks = [];
-
   for (let [name, score] of Object.entries(scores)) {
     ranks.push({ name, score });
   }
+  //Sort the competitors by score
   ranks.sort((a, b) => {
     return b.score - a.score;
   });
+  //Assign ranks to the competitors
   ranks[0].rank = 1;
   for (let i = 1; i < ranks.length; i++) {
     if (ranks[i].score === ranks[i - 1].score) {

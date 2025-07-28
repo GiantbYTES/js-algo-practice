@@ -11,7 +11,7 @@ describe(__filename, () => {
     ${"alpaca"} | ${"0c0pl0aca"}
     ${"hello"}  | ${"2ll1haca"}
   `(
-    "returns $expected when calling with the following param/s: a",
+    "returns $expected when calling with the following param/s: $a",
     ({ a, expected }) => {
       expect(file.solution(a)).toBe(expected);
     }
