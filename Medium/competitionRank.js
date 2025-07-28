@@ -33,8 +33,28 @@ Notes
 The highest score has a rank value of 1..
 */
 
-function competitionRank( /*args*/ ) {
+function competitionRank(scores, name) {
   //your code
+  const ranks = [];
+
+  for (let [name, score] of Object.entries(scores)) {
+    ranks.push({ name, score });
+  }
+  ranks.sort((a, b) => {
+    return b.score - a.score;
+  });
+  ranks[0].rank = 1;
+  for (let i = 1; i < ranks.length; i++) {
+    if (ranks[i].score === ranks[i - 1].score) {
+      ranks[i].rank = ranks[i - 1].rank;
+    } else {
+      ranks[i].rank = i + 1;
+    }
+    if (ranks[i].name === name) {
+      return ranks[i].rank;
+    }
+  }
+  return 1;
 }
 
 exports.solution = competitionRank;

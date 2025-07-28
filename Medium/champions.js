@@ -35,8 +35,19 @@ champions([
 ➞ "Manchester United"
 */
 
-function champions( /*args*/ ) {
+function champions(league) {
   //your code
+  let top = league[0];
+  league.forEach((t) => {
+    if (3 * t.wins + t.draws > 3 * top.wins + top.draws) {
+      top = t;
+    } else if (3 * t.wins + t.draws === 3 * top.wins + top.draws) {
+      if (t.scored - t.conceded > top.scored - top.conceded) {
+        top = t;
+      }
+    }
+  });
+  return top.name;
 }
 
 exports.solution = champions;
