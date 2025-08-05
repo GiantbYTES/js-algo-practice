@@ -16,8 +16,16 @@ Notes
 The given string will never have more than one missing letter.
 */
 
-function missingLetter( /*args*/ ) {
+function missingLetter(str) {
   //your code
+  const strArr = str.split("");
+  console.log(strArr);
+  for (let i = 0; i < strArr.length - 1; i++) {
+    if (strArr[i + 1].charCodeAt(0) - strArr[i].charCodeAt(0) !== 1) {
+      return String.fromCharCode(strArr[i].charCodeAt(0) + 1);
+    }
+  }
+  return "No Missing Letter";
 }
 
 exports.solution = missingLetter;

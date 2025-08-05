@@ -14,8 +14,14 @@ Notes
 Remember to sort the keys.
 */
 
-function keysAndValues( /*args*/ ) {
+function keysAndValues(obj) {
   //your code
+  const toReturn = [];
+  const keys = Object.keys(obj);
+  const values = Object.values(obj);
+  toReturn.push(keys);
+  toReturn.push(values);
+  return toReturn;
 }
 
 exports.solution = keysAndValues;
