@@ -11,8 +11,14 @@ oddishOrEvenish(373) ➞ "Oddish"
 oddishOrEvenish(4433) ➞ "Evenish"
 */
 
-function oddishOrEvenish( /*args*/ ) {
+function oddishOrEvenish(num) {
   //your code
+  const numArr = String(num).split("");
+  console.log(numArr);
+  const toCheck = numArr.reduce((acc, cur) => {
+    return acc + parseInt(cur);
+  }, 0);
+  return toCheck % 2 !== 0 ? "Oddish" : "Evenish";
 }
 
 exports.solution = oddishOrEvenish;
